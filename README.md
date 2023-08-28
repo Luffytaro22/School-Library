@@ -52,13 +52,6 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a id="live-demo"></a>
-**Cooming soon**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a id="getting-started"></a>
@@ -74,10 +67,6 @@ To clone this repository to your desired folder, run the following command: <br>
 ```
 git clone git@github.com:Luffytaro22/School-Library.git
 ```
-
-### Deployment
-**Cooming soon**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
