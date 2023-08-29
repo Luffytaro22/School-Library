@@ -21,7 +21,7 @@ class Person < Nameable
   end
 
   def correct_name
-    @name.correct_name
+    @name
   end
 
   private
