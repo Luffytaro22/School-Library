@@ -1,5 +1,5 @@
 class Rental
-  @@all = []
+  @all = []
   def initialize(date, person, book)
     @date = date
     @person = person
@@ -11,7 +11,7 @@ class Rental
 
   attr_accessor :date, :person, :book
 
-  def self.all
-    @@all
+  class << self
+    attr_reader :all
   end
 end
