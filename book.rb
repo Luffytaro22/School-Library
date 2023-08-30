@@ -1,3 +1,5 @@
+require_relative 'rental'
+
 class Book
   def initialize(title, author)
     @title = title
@@ -5,4 +7,9 @@ class Book
   end
 
   attr_accessor :title, :author
+
+  # has-many relation with Rental
+  def rentals
+    Rental.all.select { |rental| rental.book == self }
+  end
 end
