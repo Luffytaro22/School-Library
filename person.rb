@@ -1,4 +1,5 @@
 require_relative 'nameable'
+require_relative 'rental'
 
 class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
@@ -28,5 +29,10 @@ class Person < Nameable
 
   def of_age?
     @age >= 18
+  end
+
+  # has-many relation with Rental
+  def rentals
+    Rental.all.select { |rental| rental.person == self }
   end
 end
