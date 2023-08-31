@@ -8,8 +8,8 @@ class App
     @book
   end
 
-  def create_student(age, classroom, name, parent_permission)
-    Student.new(age, classroom, name, parent_permission)
+  def create_student(age, classroom, name, permission)
+    Student.new(age, classroom, name, parent_permission: permission)
   end
 
   def create_teacher(age, specialization, name)
