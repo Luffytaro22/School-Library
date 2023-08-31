@@ -8,6 +8,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
   attr_accessor :name, :age
@@ -32,7 +33,7 @@ class Person < Nameable
   end
 
   # has-many relation with Rental
-  def rentals
-    Rental.all.select { |rental| rental.person == self }
+  def add_rental(book, date)
+    Rental.new(date, book, self)
   end
 end
