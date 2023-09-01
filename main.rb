@@ -96,13 +96,13 @@ def main
       puts "Book created successfully"
       puts "\n"
     when "5"
+      app.list_books_with_index
+      index_book = gets.chomp.to_i
+      app.list_people_with_index
+      index_people = gets.chomp.to_i
       print "Date: "
       date = gets.chomp
-      print "Person name: "
-      name = gets.chomp
-      print "Book name: "
-      book = gets.chomp
-      app.create_rental(date, name, book)
+      app.create_rental(date, index_people, index_book)
       puts "Rental created successfully"
       puts "\n"
     when "6"
