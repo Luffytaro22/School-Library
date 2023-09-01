@@ -2,6 +2,7 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require_relative 'classroom'
 
 class App
   def initialize
@@ -12,7 +13,7 @@ class App
 
   def list_books
     @books.each do |book|
-      puts "#{book[:title]} by #{book[:author]}"
+      puts "Title: '#{book[:title]}', Author: #{book[:author]}"
     end
   end
 
@@ -40,13 +41,14 @@ class App
   end
 
   def create_student(age, classroom, name, permission)
-    student = Student.new(age, classroom, name, parent_permission: permission)
+    classroom_name = Classroom.new(classroom)
+    student = Student.new(age, classroom_name, name, parent_permission: permission)
     student_input = {
       role: "[Student]",
       id: student.id,
       name: student.name,
       age: student.age,
-      classroom: student.classroom,
+      classroom: classroom_name.label,
       permission: student.parent_permission
     }
     @people << student_input
