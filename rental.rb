@@ -4,12 +4,10 @@ class Rental
     @date = date
     @person = person
     @book = book
-    if person.is_a?(Person)
-      person.rentals << self
-    end
-    if book.is_a?(Book)
-      book.rentals << self
-    end
+    person.rentals << self if person.is_a?(Person)
+    return unless book.is_a?(Book)
+
+    book.rentals << self
   end
 
   attr_accessor :date, :person, :book

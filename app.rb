@@ -19,22 +19,24 @@ class App
 
   def list_people
     @people.each do |person|
-      if person[:role] == "[Teacher]"
-        puts "#{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]}, Specialization: #{person[:specialization]}"
+      if person[:role] == '[Teacher]'
+        puts "#{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]},
+        Specialization: #{person[:specialization]}"
       else
-        puts "#{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]}, Classroom: #{person[:classroom]}, Parent Permission: #{person[:permission]}"
+        puts "#{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]},
+        Classroom: #{person[:classroom]}, Parent Permission: #{person[:permission]}"
       end
     end
   end
 
   def list_rentals_for_person(person_id)
     filtered_rentals = @rentals.select { |obj| obj.person[:id] == person_id }
-    if filtered_rentals.length > 0
+    if filtered_rentals.length.positive?
       filtered_rentals.each do |rental|
         puts "Date: #{rental.date}, Book: '#{rental.book[:title]}' by #{rental.book[:author]}"
       end
     else
-      puts "No matching ID"
+      puts 'No matching ID'
     end
   end
 
@@ -42,7 +44,7 @@ class App
     classroom_name = Classroom.new(classroom)
     student = Student.new(age, classroom_name, name, parent_permission: permission)
     student_input = {
-      role: "[Student]",
+      role: '[Student]',
       id: student.id,
       name: student.name,
       age: student.age,
@@ -55,7 +57,7 @@ class App
   def create_teacher(age, specialization, name)
     teacher = Teacher.new(age, specialization, name)
     teacher_input = {
-      role: "[Teacher]",
+      role: '[Teacher]',
       id: teacher.id,
       name: teacher.name,
       age: teacher.age,
@@ -74,19 +76,21 @@ class App
   end
 
   def list_books_with_index
-    puts "Select a book from the following list by number:"
+    puts 'Select a book from the following list by number:'
     @books.each_with_index do |book, index|
       puts "#{index}) Title: '#{book[:title]}', Author: #{book[:author]}"
     end
   end
 
   def list_people_with_index
-    puts "Select a person from the following list by number (not id):"
+    puts 'Select a person from the following list by number (not id):'
     @people.each_with_index do |person, index|
-      if person[:role] == "[Teacher]"
-        puts "#{index}) #{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]}, Specialization: #{person[:specialization]}"
+      if person[:role] == '[Teacher]'
+        puts "#{index}) #{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]},
+        Specialization: #{person[:specialization]}"
       else
-        puts "#{index}) #{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]}, Classroom: #{person[:classroom]}, Parent Permission: #{person[:permission]}"
+        puts "#{index}) #{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]},
+        Classroom: #{person[:classroom]}, Parent Permission: #{person[:permission]}"
       end
     end
   end
