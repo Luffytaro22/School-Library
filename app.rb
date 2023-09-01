@@ -28,15 +28,13 @@ class App
   end
 
   def list_rentals_for_person(person_id)
-    person = @people.find { |p| p.id == person_id }
-    if person
-      rentals_for_person = @rentals.select { |r| r.person == person }
-      puts "Rentals for #{person[:name]}:"
-      rentals_for_person.each do |rental|
-        puts "#{rental.book.title}, Date: #{rental.date}"
+    filtered_rentals = @rentals.select { |obj| obj.person[:id] == person_id }
+    if filtered_rentals.length > 0
+      filtered_rentals.each do |rental|
+        puts "Date: #{rental.date}, Book: '#{rental.book[:title]}' by #{rental.book[:author]}"
       end
     else
-      puts "Person with ID #{person_id} not found."
+      puts "No matching ID"
     end
   end
 
@@ -97,10 +95,6 @@ class App
     person = @people[person_index]
     book = @books[book_index]
     rental = Rental.new(date, person, book)
-    puts "#{rental}"
-    puts "#{rental.person}"
-    puts "#{rental.book}"
-    puts "#{rental.date}"
     @rentals << rental
   end
 end
