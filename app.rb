@@ -75,8 +75,32 @@ class App
     @books << book_input
   end
 
-  def create_rental(date, person, book)
+  def list_books_with_index
+    puts "Select a book from the following list by number:"
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: '#{book[:title]}', Author: #{book[:author]}"
+    end
+  end
+
+  def list_people_with_index
+    puts "Select a person from the following list by number (not id):"
+    @people.each_with_index do |person, index|
+      if person[:role] == "[Teacher]"
+        puts "#{index}) #{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]}, Specialization: #{person[:specialization]}"
+      else
+        puts "#{index}) #{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]}, Classroom: #{person[:classroom]}, Parent Permission: #{person[:permission]}"
+      end
+    end
+  end
+
+  def create_rental(date, person_index, book_index)
+    person = @people[person_index]
+    book = @books[book_index]
     rental = Rental.new(date, person, book)
+    puts "#{rental}"
+    puts "#{rental.person}"
+    puts "#{rental.book}"
+    puts "#{rental.date}"
     @rentals << rental
   end
 end
