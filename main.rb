@@ -35,8 +35,8 @@ class TrimmerDecorator < Decorator
 end
 
 def main
+  app = App.new
   loop do
-    app = App.new
     puts "Please choose an option by enterin a number:"
     puts "1 - List all books"
     puts "2 - List all people"
@@ -49,8 +49,10 @@ def main
     case option
     when "1"
       puts "Books:"
+      app.list_books
     when "2"
       puts "People:"
+      app.list_people
     when "3"
       print "Do you want to create a student(1) or a teacher(2)? [Input the number]: "
       get_person = gets.chomp
@@ -88,11 +90,21 @@ def main
       app.create_book(title, author)
       puts "Book created successfully"
     when "5"
+      print "Date: "
+      date = gets.chomp
+      print "Person name: "
+      name = gets.chomp
+      print "Book name: "
+      book = gets.chomp
+      app.create_rental(date, name, book)
       puts "Rental created successfully"
     when "6"
-      puts "Rentals: "
+      print "Person ID: "
+      id = gets.chomp.to_i
+      puts "The rentals for #{id} are:"
+      app.list_rentals_for_person(id)
     when "7"
-      puts "Thanks for using our system \(^w^)/"
+      puts "Thanks for using our system /(^w^)/"
       break
     else
       puts "I don't recognize that option..."
