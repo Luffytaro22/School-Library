@@ -10,17 +10,28 @@ class App
     create_file_if_not_exists("./data/people.json")
     create_file_if_not_exists("./data/books.json")
     create_file_if_not_exists("./data/rentals.json")
-    @people = []
-    @books = []
-    @rentals = []
+    load_data_from_files
   end
 
-  def file_exists?(file_path)
-    File.exist?(file_path)
+  def load_data_from_files
+    @people = load_json_file("./data/people.json", [])
+    @books = load_json_file("./data/books.json", [])
+    @rentals = load_json_file("./data/rentals.json", [])
+    puts "books: #{@books}"
   end
   
+  def load_json_file(file_path, default_value)
+    file = File.open(file_path)
+    file_data = file.read
+    if file_data.empty?
+      default_value
+    else
+      JSON.parse(file_data)
+    end
+  end  
+  
   def create_file_if_not_exists(file_path)
-    unless file_exists?(file_path)
+    unless File.exist?(file_path)
       File.open(file_path, "w") do |file|
       end
     end
@@ -28,7 +39,7 @@ class App
 
   def list_books
     @books.each do |book|
-      puts "Title: '#{book[:title]}', Author: #{book[:author]}"
+      puts "Title: '#{book["title"]}', Author: #{book["author"]}"
     end
   end
 
