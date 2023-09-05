@@ -17,7 +17,6 @@ class App
     @people = load_json_file("./data/people.json", [])
     @books = load_json_file("./data/books.json", [])
     @rentals = load_json_file("./data/rentals.json", [])
-    puts "books: #{@books}"
   end
   
   def load_json_file(file_path, default_value)
@@ -28,8 +27,8 @@ class App
     else
       JSON.parse(file_data)
     end
-  end  
-  
+  end
+
   def create_file_if_not_exists(file_path)
     unless File.exist?(file_path)
       File.open(file_path, "w") do |file|
@@ -70,12 +69,12 @@ class App
     classroom_name = Classroom.new(classroom)
     student = Student.new(age, classroom_name, name, parent_permission: permission)
     student_input = {
-      role: '[Student]',
-      id: student.id,
-      name: student.name,
-      age: student.age,
-      classroom: classroom_name.label,
-      permission: student.parent_permission
+      "role" => '[Student]',
+      "id" => student.id,
+      "name" => student.name,
+      "age" => student.age,
+      "classroom" => classroom_name.label,
+      "permission" => student.parent_permission
     }
     @people << student_input
     File.write("./data/people.json", JSON.pretty_generate(@people))
@@ -84,11 +83,11 @@ class App
   def create_teacher(age, specialization, name)
     teacher = Teacher.new(age, specialization, name)
     teacher_input = {
-      role: '[Teacher]',
-      id: teacher.id,
-      name: teacher.name,
-      age: teacher.age,
-      specialization: teacher.specialization
+      "role" => '[Teacher]',
+      "id" => teacher.id,
+      "name" => teacher.name,
+      "age" => teacher.age,
+      "specialization" => teacher.specialization
     }
     @people << teacher_input
     File.write("./data/people.json", JSON.pretty_generate(@people))
@@ -97,8 +96,8 @@ class App
   def create_book(title, author)
     book = Book.new(title, author)
     book_input = {
-      title: book.title,
-      author: book.author
+      "title" => book.title,
+      "author" => book.author
     }
     @books << book_input
     File.write("./data/books.json", JSON.pretty_generate(@books))
@@ -129,10 +128,10 @@ class App
     book = @books[book_index]
     rental = Rental.new(date, person, book)
     rental_input = {
-      id: rental.person[:id],
-      title: rental.book[:title],
-      author: rental.book[:author],
-      date: rental.date
+      "id" => rental.person["id"],
+      "title" => rental.book["title"],
+      "author" => rental.book["author"],
+      "date" => rental.date
     }
     @rentals << rental_input
     File.write("./data/rentals.json", JSON.pretty_generate(@rentals))
