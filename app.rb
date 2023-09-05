@@ -1,3 +1,4 @@
+require 'json'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
@@ -66,6 +67,7 @@ class App
       permission: student.parent_permission
     }
     @people << student_input
+    File.write("./data/people.json", JSON.pretty_generate(@people))
   end
 
   def create_teacher(age, specialization, name)
@@ -78,6 +80,7 @@ class App
       specialization: teacher.specialization
     }
     @people << teacher_input
+    File.write("./data/people.json", JSON.pretty_generate(@people))
   end
 
   def create_book(title, author)
@@ -87,6 +90,7 @@ class App
       author: book.author
     }
     @books << book_input
+    File.write("./data/books.json", JSON.pretty_generate(@books))
   end
 
   def list_books_with_index
@@ -114,5 +118,6 @@ class App
     book = @books[book_index]
     rental = Rental.new(date, person, book)
     @rentals << rental
+    File.write("./data/rentals.json", JSON.pretty_generate(@rentals))
   end
 end
