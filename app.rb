@@ -45,10 +45,10 @@ class App
   end
 
   def list_rentals_for_person(person_id)
-    filtered_rentals = @rentals.select { |obj| obj.person[:id] == person_id }
+    filtered_rentals = @rentals.select { |obj| obj[:id] == person_id }
     if filtered_rentals.length.positive?
       filtered_rentals.each do |rental|
-        puts "Date: #{rental.date}, Book: '#{rental.book[:title]}' by #{rental.book[:author]}"
+        puts "Date: #{rental[:date]}, Book: '#{rental[:title]}' by #{rental[:author]}"
       end
     else
       puts 'No matching ID'
@@ -117,7 +117,13 @@ class App
     person = @people[person_index]
     book = @books[book_index]
     rental = Rental.new(date, person, book)
-    @rentals << rental
+    rental_input = {
+      id: rental.person[:id],
+      title: rental.book[:title],
+      author: rental.book[:author],
+      date: rental.date
+    }
+    @rentals << rental_input
     File.write("./data/rentals.json", JSON.pretty_generate(@rentals))
   end
 end
