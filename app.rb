@@ -7,10 +7,19 @@ require_relative 'classroom'
 
 class App
   def initialize
+    create_data
     create_file_if_not_exists("./data/people.json")
     create_file_if_not_exists("./data/books.json")
     create_file_if_not_exists("./data/rentals.json")
     load_data_from_files
+  end
+
+  def create_data
+    if Dir.exist?("./data")
+      return
+    else
+      Dir.mkdir("./data")
+    end
   end
 
   def load_data_from_files
