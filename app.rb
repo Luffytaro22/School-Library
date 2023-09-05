@@ -6,9 +6,23 @@ require_relative 'classroom'
 
 class App
   def initialize
+    create_file_if_not_exists("./data/people.json")
+    create_file_if_not_exists("./data/books.json")
+    create_file_if_not_exists("./data/rentals.json")
     @people = []
     @books = []
     @rentals = []
+  end
+
+  def file_exists?(file_path)
+    File.exist?(file_path)
+  end
+  
+  def create_file_if_not_exists(file_path)
+    unless file_exists?(file_path)
+      File.open(file_path, "w") do |file|
+      end
+    end
   end
 
   def list_books
