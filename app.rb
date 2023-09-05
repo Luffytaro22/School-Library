@@ -45,21 +45,21 @@ class App
 
   def list_people
     @people.each do |person|
-      if person[:role] == '[Teacher]'
-        puts "#{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]},
-        Specialization: #{person[:specialization]}"
+      if person["role"] == '[Teacher]'
+        puts "#{person["role"]} ID: #{person["id"]}, Name: #{person["name"]}, Age: #{person["age"]},
+        Specialization: #{person["specialization"]}"
       else
-        puts "#{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]},
-        Classroom: #{person[:classroom]}, Parent Permission: #{person[:permission]}"
+        puts "#{person["role"]} ID: #{person["id"]}, Name: #{person["name"]}, Age: #{person["age"]},
+        Classroom: #{person["classroom"]}, Parent Permission: #{person["permission"]}"
       end
     end
   end
 
   def list_rentals_for_person(person_id)
-    filtered_rentals = @rentals.select { |obj| obj[:id] == person_id }
+    filtered_rentals = @rentals.select { |obj| obj["id"] == person_id }
     if filtered_rentals.length.positive?
       filtered_rentals.each do |rental|
-        puts "Date: #{rental[:date]}, Book: '#{rental[:title]}' by #{rental[:author]}"
+        puts "Date: #{rental["date"]}, Book: '#{rental["title"]}' by #{rental["author"]}"
       end
     else
       puts 'No matching ID'
@@ -107,19 +107,19 @@ class App
   def list_books_with_index
     puts 'Select a book from the following list by number:'
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: '#{book[:title]}', Author: #{book[:author]}"
+      puts "#{index}) Title: '#{book["title"]}', Author: #{book["author"]}"
     end
   end
 
   def list_people_with_index
     puts 'Select a person from the following list by number (not id):'
     @people.each_with_index do |person, index|
-      if person[:role] == '[Teacher]'
-        puts "#{index}) #{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]},
-        Specialization: #{person[:specialization]}"
+      if person["role"] == '[Teacher]'
+        puts "#{index}) #{person["role"]} ID: #{person["id"]}, Name: #{person["name"]}, Age: #{person["age"]},
+        Specialization: #{person["specialization"]}"
       else
-        puts "#{index}) #{person[:role]} ID: #{person[:id]}, Name: #{person[:name]}, Age: #{person[:age]},
-        Classroom: #{person[:classroom]}, Parent Permission: #{person[:permission]}"
+        puts "#{index}) #{person["role"]} ID: #{person["id"]}, Name: #{person["name"]}, Age: #{person["age"]},
+        Classroom: #{person["classroom"]}, Parent Permission: #{person["permission"]}"
       end
     end
   end
