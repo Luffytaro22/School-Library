@@ -79,6 +79,11 @@ git clone git@github.com:Luffytaro22/School-Library.git
 - GitHub: [Luffytaro22](https://github.com/Luffytaro22)
 - LinkedIn: [Manuel Sánchez](https://www.linkedin.com/in/manuel-alejandro-sanchez-sierra-4b358b14a/)
 
+👤 **Ali Baba Hussaini**
+
+- GitHub: [@Alibaba2023](https://github.com/Alibaba2023)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ali-baba-hussaini-630607267/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
