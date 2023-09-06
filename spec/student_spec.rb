@@ -1,8 +1,8 @@
-require './student.rb'
-require './classroom.rb'
+require './student'
+require './classroom'
 
 describe Student do
-  context "When testing the student class"do
+  context 'When testing the student class' do
     it 'Create a new student without a name' do
       class1 = Classroom.new('1A')
       student1 = Student.new(16, class1)

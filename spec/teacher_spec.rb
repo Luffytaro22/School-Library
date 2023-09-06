@@ -1,7 +1,7 @@
-require './teacher.rb'
+require './teacher'
 
 describe Teacher do
-  context "When testing the Teacher class" do
+  context 'When testing the Teacher class' do
     it 'Create a new teacher without a name' do
       teacher1 = Teacher.new(34, 'Doctor')
       expect(teacher1).to be_instance_of Teacher

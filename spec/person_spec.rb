@@ -1,10 +1,10 @@
-require './person.rb'
-require './book.rb'
-require './rental.rb'
+require './person'
+require './book'
+require './rental'
 
 describe Person do
-  context "When testing the Person class"do
-    it "Create a new instance of person without passing a name" do
+  context 'When testing the Person class' do
+    it 'Create a new instance of person without passing a name' do
       person1 = Person.new(23)
       book1 = Book.new('The King', 'Larry King')
       rental1 = person1.add_rental(book1, '2023/09/06')
@@ -16,7 +16,7 @@ describe Person do
       expect(person1.can_use_services?).to be true
     end
 
-    it "Create a new instance of person with a name and parent permission parameters" do
+    it 'Create a new instance of person with a name and parent permission parameters' do
       person2 = Person.new(14, 'Kaori Miyazono', parent_permission: false)
       book2 = Book.new('The Hobbit', 'Tolkien')
       rental2 = person2.add_rental(book2, '2023/09/06')

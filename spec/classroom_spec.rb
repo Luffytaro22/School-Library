@@ -1,7 +1,7 @@
-require './classroom.rb'
+require './classroom'
 
 describe Classroom do
-  context "When testing classroom class" do
+  context 'When testing classroom class' do
     it 'Creates a new classroom with a student' do
       class1 = Classroom.new('1A')
       student1 = double('student')

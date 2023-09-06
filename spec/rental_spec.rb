@@ -1,9 +1,9 @@
-require './rental.rb'
-require './person.rb'
-require './book.rb'
+require './rental'
+require './person'
+require './book'
 
 describe Rental do
-  context "When testing Rental class" do
+  context 'When testing Rental class' do
     it 'Create a new rental with a new person and book' do
       person1 = Person.new(45, 'Monica')
       book1 = Book.new('Sunshine', 'Somebody')

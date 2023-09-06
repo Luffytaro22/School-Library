@@ -1,10 +1,10 @@
-require './book.rb'
-require './person.rb'
-require './rental.rb'
+require './book'
+require './person'
+require './rental'
 
 describe Book do
-  context "When testing the Book class"do
-    it "Create an instance and test the add_rental method" do
+  context 'When testing the Book class' do
+    it 'Create an instance and test the add_rental method' do
       person1 = Person.new(23, 'Norland')
       book1 = Book.new('Harry Potter', 'J.K Rowling')
       rental1 = book1.add_rental(person1, '2023/09/06')
