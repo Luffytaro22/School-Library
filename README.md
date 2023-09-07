@@ -70,6 +70,22 @@ git clone git@github.com:Luffytaro22/School-Library.git
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Usage
+Initialize it with
+```
+ruby main.rb
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Test
+To run the tests try the following command:
+```
+rspec spec
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- AUTHORS -->
 
 ## 👥 Authors <a id="authors"></a>
@@ -78,6 +94,11 @@ git clone git@github.com:Luffytaro22/School-Library.git
 
 - GitHub: [Luffytaro22](https://github.com/Luffytaro22)
 - LinkedIn: [Manuel Sánchez](https://www.linkedin.com/in/manuel-alejandro-sanchez-sierra-4b358b14a/)
+
+👤 **Ali Baba Hussaini**
+
+- GitHub: [@Alibaba2023](https://github.com/Alibaba2023)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ali-baba-hussaini-630607267/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

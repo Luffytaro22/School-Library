@@ -11,7 +11,7 @@ class Person < Nameable
     @rentals = []
   end
 
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :rentals
   attr_reader :id
 
   def can_use_services?
@@ -26,14 +26,14 @@ class Person < Nameable
     @name
   end
 
+  # has-many relation with Rental
+  def add_rental(book, date)
+    Rental.new(date, book, self)
+  end
+
   private
 
   def of_age?
     @age >= 18
-  end
-
-  # has-many relation with Rental
-  def add_rental(book, date)
-    Rental.new(date, book, self)
   end
 end
